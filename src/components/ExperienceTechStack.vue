@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import {
-  TopWebBar,
   PrimaryButton,
   SecondaryButton,
   Container,
@@ -14,7 +13,6 @@ import {
   Tabs,
 } from './ui'
 
-const emit = defineEmits(['back'])
 const activeStackTab = ref('backend')
 
 const stackTabs = [
@@ -30,28 +28,6 @@ const stackTabs = [
     <div class="pointer-events-none fixed bottom-[-10%] right-[-10%] h-[50%] w-[50%] rounded-full glow-overlay-blue opacity-50"></div>
 
     <div class="relative z-10">
-      <TopWebBar title="Experience & Tech Stack">
-        <template #left>
-          <button class="flex items-center gap-3" type="button" @click="emit('back')">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary text-black">
-              <span class="material-symbols-outlined text-2xl">terminal</span>
-            </div>
-            <h2 class="text-xl font-bold tracking-tight text-white">Portfolio</h2>
-          </button>
-        </template>
-
-        <template #center>
-          <button class="text-sm font-medium text-slate-200 transition-colors hover:text-primary" type="button" @click="emit('back')">Home</button>
-          <a class="text-sm font-medium text-slate-200 transition-colors hover:text-primary" href="#about">About</a>
-          <a class="text-sm font-medium text-slate-200 transition-colors hover:text-primary" href="#tech-stack">Tech Stack</a>
-          <a class="text-sm font-medium text-slate-200 transition-colors hover:text-primary" href="#projects">Projects</a>
-        </template>
-
-        <template #right>
-          <PrimaryButton @click="emit('back')">Back</PrimaryButton>
-        </template>
-      </TopWebBar>
-
       <Container size="lg" as="main" class="py-12 md:py-20">
         <Breadcrumb :items="[{ label: 'Home' }, { label: 'Experience & Tech Stack' }]" />
 

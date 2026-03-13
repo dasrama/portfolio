@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import ExperienceTechStack from './components/ExperienceTechStack.vue'
 import {
   TopWebBar,
@@ -42,9 +42,33 @@ function openTechStackPage() {
   showTechStackPage.value = true
 }
 
+function goHome() {
+  if (showTechStackPage.value) {
+    showTechStackPage.value = false
+    nextTick(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+    return
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 function scrollToId(id) {
   const target = document.getElementById(id)
   if (target) target.scrollIntoView({ behavior: 'smooth' })
+}
+
+function navigateToSection(id) {
+  if (showTechStackPage.value) {
+    showTechStackPage.value = false
+    nextTick(() => {
+      scrollToId(id)
+    })
+    return
+  }
+
+  scrollToId(id)
 }
 
 function onBottomNavigate(item) {
@@ -72,41 +96,49 @@ function submitMessage() {
 
 <template>
   <div>
+    <TopWebBar title="System.io">
+      <template #left>
+        <div class="terminal-glow flex size-10 items-center justify-center rounded-lg bg-primary">
+          <span class="material-symbols-outlined font-bold text-black">terminal</span>
+        </div>
+      </template>
+
+      <template #center>
+        <button class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" type="button" @click="goHome">
+          Home
+        </button>
+        <button class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" type="button" @click="navigateToSection('about')">
+          About
+        </button>
+        <button class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" type="button" @click="openTechStackPage">
+          Tech Stack
+        </button>
+        <button class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" type="button" @click="navigateToSection('projects')">
+          Projects
+        </button>
+      </template>
+
+      <template #right>
+        <PrimaryButton class="hidden md:inline-flex">Resume</PrimaryButton>
+        <IconButton icon="menu" label="Open menu" class="md:hidden" @click="drawerOpen = true" />
+      </template>
+    </TopWebBar>
+
+    <SideDrawer v-model="drawerOpen" title="Navigation">
+      <Column gap="1rem" align="stretch">
+        <button class="text-left text-sm font-medium text-slate-200" type="button" @click="goHome(); drawerOpen = false">Home</button>
+        <button class="text-left text-sm font-medium text-slate-200" type="button" @click="navigateToSection('about'); drawerOpen = false">About</button>
+        <button class="text-left text-sm font-medium text-slate-200" type="button" @click="openTechStackPage(); drawerOpen = false">Tech Stack</button>
+        <button class="text-left text-sm font-medium text-slate-200" type="button" @click="navigateToSection('projects'); drawerOpen = false">Projects</button>
+        <PrimaryButton @click="drawerOpen = false">Resume</PrimaryButton>
+      </Column>
+    </SideDrawer>
+
     <div
       v-if="!showTechStackPage"
       class="relative min-h-screen overflow-x-hidden bg-background-light font-display text-slate-900 selection:bg-primary/30 dark:bg-background-dark dark:text-slate-100"
     >
       <div class="pointer-events-none fixed inset-0 grid-bg"></div>
-
-      <TopWebBar title="System.io">
-        <template #left>
-          <div class="terminal-glow flex size-10 items-center justify-center rounded-lg bg-primary">
-            <span class="material-symbols-outlined font-bold text-black">terminal</span>
-          </div>
-        </template>
-
-        <template #center>
-          <a class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" href="#about">About</a>
-          <button class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" type="button" @click="openTechStackPage">
-            Tech Stack
-          </button>
-          <a class="text-sm font-medium text-slate-200 transition-colors hover:text-secondary" href="#projects">Projects</a>
-        </template>
-
-        <template #right>
-          <PrimaryButton class="hidden md:inline-flex">Resume</PrimaryButton>
-          <IconButton icon="menu" label="Open menu" class="md:hidden" @click="drawerOpen = true" />
-        </template>
-      </TopWebBar>
-
-      <SideDrawer v-model="drawerOpen" title="Navigation">
-        <Column gap="1rem" align="stretch">
-          <button class="text-left text-sm font-medium text-slate-200" type="button" @click="scrollToId('about'); drawerOpen = false">About</button>
-          <button class="text-left text-sm font-medium text-slate-200" type="button" @click="openTechStackPage(); drawerOpen = false">Tech Stack</button>
-          <button class="text-left text-sm font-medium text-slate-200" type="button" @click="scrollToId('projects'); drawerOpen = false">Projects</button>
-          <PrimaryButton @click="drawerOpen = false">Resume</PrimaryButton>
-        </Column>
-      </SideDrawer>
 
       <Container size="xl" as="main" class="relative z-10 pb-28">
         <section class="overflow-hidden pb-20 pt-20">
@@ -259,6 +291,6 @@ function submitMessage() {
       <FloatingActionButton icon="north" label="Back to top" @click="scrollToId('about')" />
     </div>
 
-    <ExperienceTechStack v-else @back="showTechStackPage = false" />
+    <ExperienceTechStack v-else />
   </div>
 </template>

@@ -8,7 +8,7 @@ const props = defineProps({
 <template>
   <header
     :class="[
-      'z-50 w-full border-b border-slate-200/70 bg-background-dark/80 px-6 py-4 backdrop-blur-md dark:border-slate-800/50',
+      'z-50 w-full border-b border-slate-200/70 bg-background-dark px-6 py-4 dark:border-slate-800/50',
       props.sticky ? 'sticky top-0' : '',
     ]"
   >
