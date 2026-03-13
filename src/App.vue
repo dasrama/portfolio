@@ -38,6 +38,12 @@ const mobileNavItems = [
   { key: 'projects', label: 'Projects', icon: 'folder' },
 ]
 
+const profileLinks = {
+  github: 'https://github.com/dasrama',
+  linkedin: 'https://www.linkedin.com/in/rama-das/',
+  resume: '/resume.pdf',
+}
+
 function openTechStackPage() {
   showTechStackPage.value = true
 }
@@ -92,6 +98,22 @@ function submitMessage() {
     sendingMessage.value = false
   }, 1000)
 }
+
+function openExternalLink(url) {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
+
+function openGitHub() {
+  openExternalLink(profileLinks.github)
+}
+
+function openLinkedInMessage() {
+  openExternalLink(`${profileLinks.linkedin}?trk=public_profile_message-button`)
+}
+
+function openResume() {
+  openExternalLink(profileLinks.resume)
+}
 </script>
 
 <template>
@@ -119,7 +141,7 @@ function submitMessage() {
       </template>
 
       <template #right>
-        <PrimaryButton class="hidden md:inline-flex">Resume</PrimaryButton>
+        <PrimaryButton class="hidden md:inline-flex" @click="openResume">Resume</PrimaryButton>
         <IconButton icon="menu" label="Open menu" class="md:hidden" @click="drawerOpen = true" />
       </template>
     </TopWebBar>
@@ -130,7 +152,14 @@ function submitMessage() {
         <button class="text-left text-sm font-medium text-slate-200" type="button" @click="navigateToSection('about'); drawerOpen = false">About</button>
         <button class="text-left text-sm font-medium text-slate-200" type="button" @click="openTechStackPage(); drawerOpen = false">Tech Stack</button>
         <button class="text-left text-sm font-medium text-slate-200" type="button" @click="navigateToSection('projects'); drawerOpen = false">Projects</button>
-        <PrimaryButton @click="drawerOpen = false">Resume</PrimaryButton>
+        <PrimaryButton
+          @click="
+            openResume();
+            drawerOpen = false
+          "
+        >
+          Resume
+        </PrimaryButton>
       </Column>
     </SideDrawer>
 
@@ -165,7 +194,7 @@ function submitMessage() {
 
               <Row justify="center" gap="1rem" class="lg:justify-start">
                 <PrimaryButton @click="scrollToId('projects')">View Work</PrimaryButton>
-                <SecondaryButton>GitHub</SecondaryButton>
+                <SecondaryButton @click="openGitHub">GitHub</SecondaryButton>
               </Row>
             </Column>
 
@@ -280,9 +309,9 @@ function submitMessage() {
             <span class="text-sm font-bold uppercase tracking-widest">System<span class="text-primary">.io</span></span>
           </div>
           <Row gap="1rem">
-            <IconButton icon="public" label="Twitter" size="sm" />
-            <IconButton icon="code" label="GitHub" size="sm" />
-            <IconButton icon="mail" label="Email" size="sm" />
+            <IconButton icon="chat" label="LinkedIn Message" size="sm" @click="openLinkedInMessage" />
+            <IconButton icon="code" label="GitHub" size="sm" @click="openGitHub" />
+            <IconButton icon="description" label="Resume" size="sm" @click="openResume" />
           </Row>
         </Container>
       </footer>
