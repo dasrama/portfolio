@@ -12,6 +12,25 @@ dist
 dist-ssr
 *.local
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Test coverage
+coverage
+
+# Build and tool caches
+.vite
+.cache
+*.tsbuildinfo
+.eslintcache
+
+# Package manager caches
+.pnpm-store
+.npm
+yarn.lock.integrity
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
