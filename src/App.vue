@@ -164,7 +164,7 @@ function openResume() {
       <div class="pointer-events-none fixed inset-0 grid-bg"></div>
 
       <Container size="xl" as="main" class="relative z-10 pb-20">
-        <section class="overflow-hidden pb-16 pt-16">
+        <section class="overflow-hidden">
           <Row justify="space-between" align="center" gap="3rem" class="mt-6 flex-col lg:flex-row">
             <Column gap="1rem" class="max-w-2xl text-center lg:text-left">
               <div class="inline-flex items-center gap-2 self-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 lg:self-start">
@@ -212,7 +212,7 @@ function openResume() {
           </Row>
         </section>
 
-        <section class="mb-24">
+        <section>
           <SectionHeader icon="work_history" title="Professional Path" />
 
           <Column gap="1rem" align="stretch">
@@ -239,7 +239,7 @@ function openResume() {
           </Column>
         </section>
 
-        <section id="tech-stack" class="mb-24 scroll-mt-32">
+        <section id="tech-stack" class="scroll-mt-32">
           <SectionHeader icon="developer_board" title="Technical Arsenal" />
 
           <Tabs v-model="activeStackTab" :tabs="stackTabs">
@@ -266,8 +266,8 @@ function openResume() {
           </Tabs>
         </section>
 
-        <section id="projects" class="py-20">
-          <SectionHeader icon="folder_special" eyebrow="01" title="Featured Projects" />
+        <section id="projects">
+          <SectionHeader icon="folder_special" title="Featured Projects" />
 
           <Tabs v-model="projectTab" :tabs="projectTabs">
             <template #panel="{ active }">
@@ -285,7 +285,7 @@ function openResume() {
           </Tabs>
         </section>
 
-        <section id="connect-with-me" class="mb-24 scroll-mt-32">
+        <section id="connect-with-me" class="scroll-mt-32">
           <SectionHeader icon="connect_without_contact" title="Connect With Me" />
 
           <Card class="relative overflow-hidden text-center">
@@ -293,13 +293,14 @@ function openResume() {
             <div class="relative z-10">
               <h3 class="mb-4 text-2xl font-bold">Let's Connect!</h3>
               <p class="mx-auto mb-8 max-w-lg text-slate-400">
-                Feel free to reach out for collaborations, backend engineering discussions, or AI-driven solutions.
+                Feel free to reach out for collaborations or backend engineering discussions.
               </p>
               <Row justify="center" gap="0.75rem">
                 <PrimaryButton>Contact Me</PrimaryButton>
-                <SecondaryButton>GitHub</SecondaryButton>
+                <SecondaryButton @click="openLinkedInMessage">LinkedIn Message</SecondaryButton>
+                <SecondaryButton @click="openGitHub">GitHub</SecondaryButton>
               </Row>
-            </div>
+            </div>  
           </Card>
         </section>
       </Container>
@@ -312,11 +313,6 @@ function openResume() {
             </div>
             <span class="text-sm font-bold uppercase tracking-widest">System<span class="text-primary">.io</span></span>
           </div>
-          <Row gap="1rem">
-            <IconButton icon="chat" label="LinkedIn Message" size="sm" @click="openLinkedInMessage" />
-            <IconButton icon="code" label="GitHub" size="sm" @click="openGitHub" />
-            <IconButton icon="description" label="Resume" size="sm" @click="openResume" />
-          </Row>
         </Container>
       </footer>
 

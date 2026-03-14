@@ -44,3 +44,14 @@ body,
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --section-gap: 2.5rem;
+  --section-vertical-padding: 2.5rem;
+}
+
+main > section {
+  margin: var(--section-gap) 0;
+  padding-top: var(--section-vertical-padding);
+  padding-bottom: var(--section-vertical-padding);
+}
