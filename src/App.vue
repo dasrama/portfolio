@@ -41,7 +41,7 @@ const mobileNavItems = [
 const profileLinks = {
   github: 'https://github.com/dasrama',
   linkedin: 'https://www.linkedin.com/in/rama-das/',
-  resume: '/resume.pdf',
+  resume: 'https://drive.google.com/file/d/1ba-nA_uwBCBLvl1npZn22uDEYVbnTllp/view?usp=sharing',
 }
 
 function openTechStackPage() {
@@ -169,12 +169,12 @@ function openResume() {
     >
       <div class="pointer-events-none fixed inset-0 grid-bg"></div>
 
-      <Container size="xl" as="main" class="relative z-10 pb-28">
-        <section class="overflow-hidden pb-20 pt-20">
+      <Container size="xl" as="main" class="relative z-10 pb-20">
+        <section class="overflow-hidden pb-16 pt-16">
           <Breadcrumb :items="[{ label: 'Home' }, { label: 'Portfolio' }]" />
 
-          <Row justify="space-between" align="center" gap="4rem" class="mt-8 flex-col lg:flex-row">
-            <Column gap="1.5rem" class="max-w-2xl text-center lg:text-left">
+          <Row justify="space-between" align="center" gap="3rem" class="mt-6 flex-col lg:flex-row">
+            <Column gap="1rem" class="max-w-2xl text-center lg:text-left">
               <div class="inline-flex items-center gap-2 self-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 lg:self-start">
                 <span class="relative flex h-2 w-2">
                   <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
@@ -198,27 +198,29 @@ function openResume() {
               </Row>
             </Column>
 
-            <Card class="w-full max-w-2xl blue-glow">
-              <div class="mb-4 flex items-center justify-between border-b border-secondary/10 pb-3">
-                <Row gap="0.375rem">
-                  <div class="size-3 rounded-full bg-red-500/50"></div>
-                  <div class="size-3 rounded-full bg-amber-500/50"></div>
-                  <div class="size-3 rounded-full bg-primary/50"></div>
-                </Row>
-                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">system_logs.py</span>
-              </div>
-              <pre class="overflow-x-auto font-mono text-sm leading-relaxed text-slate-300">class SystemArchitect:
+            <Column class="w-full max-w-2xl lg:w-auto">
+              <Card class="blue-glow">
+                <div class="mb-4 flex items-center justify-between border-b border-secondary/10 pb-3">
+                  <Row gap="0.375rem">
+                    <div class="size-3 rounded-full bg-red-500/50"></div>
+                    <div class="size-3 rounded-full bg-amber-500/50"></div>
+                    <div class="size-3 rounded-full bg-primary/50"></div>
+                  </Row>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">system_logs.py</span>
+                </div>
+                <pre class="overflow-x-auto font-mono text-sm leading-relaxed text-slate-300">class SystemArchitect:
     def __init__(self):
         self.stack = ["FastAPI", "Redis", "K8s"]
         self.status = "Optimizing..."
 
     async def deploy(self):
         return await self.scale_horizontally()</pre>
-            </Card>
+              </Card>
+            </Column>
           </Row>
         </section>
 
-        <section id="about" class="py-24">
+        <section id="about" class="py-20">
           <SectionHeader
             icon="person"
             eyebrow="01"
@@ -246,7 +248,7 @@ function openResume() {
           </Grid>
         </section>
 
-        <section id="projects" class="py-24">
+        <section id="projects" class="py-20">
           <SectionHeader icon="folder_special" eyebrow="02" title="Featured Projects" />
 
           <Tabs v-model="projectTab" :tabs="projectTabs">
@@ -265,7 +267,7 @@ function openResume() {
           </Tabs>
         </section>
 
-        <section id="contact" class="py-24">
+        <section id="contact" class="py-20">
           <SectionHeader
             icon="mail"
             eyebrow="03"
@@ -300,7 +302,7 @@ function openResume() {
         </section>
       </Container>
 
-      <footer class="relative z-10 border-t border-secondary/10 bg-background-dark px-6 py-10">
+      <footer class="relative z-10 border-t border-secondary/10 bg-background-dark px-6 py-8">
         <Container size="xl" as="div" class="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div class="flex items-center gap-3">
             <div class="flex size-8 items-center justify-center rounded-lg border border-primary/30 bg-primary/20">
