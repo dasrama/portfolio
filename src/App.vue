@@ -1,6 +1,5 @@
 <script setup>
 import { nextTick, ref } from 'vue'
-import ExperienceTechStack from './components/ExperienceTechStack.vue'
 import {
   TopWebBar,
   PrimaryButton,
@@ -20,7 +19,6 @@ import {
   Tabs,
 } from './components/ui'
 
-const showTechStackPage = ref(false)
 const drawerOpen = ref(false)
 const projectTab = ref('featured')
 const sendingMessage = ref(false)
@@ -42,10 +40,6 @@ const profileLinks = {
   github: 'https://github.com/dasrama',
   linkedin: 'https://www.linkedin.com/in/rama-das/',
   resume: 'https://drive.google.com/file/d/1ba-nA_uwBCBLvl1npZn22uDEYVbnTllp/view?usp=sharing',
-}
-
-function openTechStackPage() {
-  showTechStackPage.value = true
 }
 
 function goHome() {
@@ -171,8 +165,6 @@ function openResume() {
 
       <Container size="xl" as="main" class="relative z-10 pb-20">
         <section class="overflow-hidden pb-16 pt-16">
-          <Breadcrumb :items="[{ label: 'Home' }, { label: 'Portfolio' }]" />
-
           <Row justify="space-between" align="center" gap="3rem" class="mt-6 flex-col lg:flex-row">
             <Column gap="1rem" class="max-w-2xl text-center lg:text-left">
               <div class="inline-flex items-center gap-2 self-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 lg:self-start">
@@ -183,7 +175,7 @@ function openResume() {
                 <span class="text-xs font-bold uppercase tracking-widest text-primary">Available for new systems</span>
               </div>
 
-              <h1 class="bg-gradient-to-r from-white via-white to-secondary/50 bg-clip-text text-5xl font-bold leading-tight text-transparent lg:text-7xl">
+              <h1 class="bg-gradient-to-r from-white via-white to-secondary/50 bg-clip-text font-bold leading-tight text-transparent text-4xl lg:text-6xl">
                 Backend Engineer &amp; <br />Systems Builder
               </h1>
 
@@ -220,36 +212,62 @@ function openResume() {
           </Row>
         </section>
 
-        <section id="about" class="py-20">
-          <SectionHeader
-            icon="person"
-            eyebrow="01"
-            title="About the Architect"
-            subtitle="I specialize in building high-throughput backend systems at the intersection of cloud infrastructure and performance engineering."
-          />
+        <section class="mb-24">
+          <SectionHeader icon="work_history" title="Professional Path" />
 
-          <Grid :cols="2" gap="1rem" min-col-width="240px">
+          <Column gap="1rem" align="stretch">
             <Card>
-              <h3 class="text-xl font-bold text-primary">50+</h3>
-              <p class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">APIs Deployed</p>
+              <p class="text-sm font-bold uppercase tracking-widest text-primary">Jan 2022 - Present</p>
+              <h3 class="mt-2 text-2xl font-bold">Backend Developer</h3>
+              <p class="mt-1 font-medium text-slate-400">Early-Stage AI Startup</p>
+              <ul class="mt-4 space-y-2 text-slate-300">
+                <li>Architected real-time AI inference pipelines processing 1M+ requests daily.</li>
+                <li>Optimized AWS Lambda cold starts by 40% through runtime and image optimizations.</li>
+                <li>Implemented vector indexing for high-performance semantic search.</li>
+              </ul>
             </Card>
+
             <Card>
-              <h3 class="text-xl font-bold text-secondary">99.9%</h3>
-              <p class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Uptime Target</p>
+              <p class="text-sm font-bold uppercase tracking-widest text-slate-500">Mar 2020 - Dec 2021</p>
+              <h3 class="mt-2 text-2xl font-bold">Software Engineer</h3>
+              <p class="mt-1 font-medium text-slate-400">CloudSystems Tech</p>
+              <ul class="mt-4 space-y-2 text-slate-300">
+                <li>Designed distributed microservices handling transactional data with 99.9% uptime.</li>
+                <li>Built internal dashboards with Prometheus and Grafana.</li>
+              </ul>
             </Card>
-            <Card>
-              <h3 class="text-xl font-bold text-white">5ms</h3>
-              <p class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Avg Latency</p>
-            </Card>
-            <Card>
-              <h3 class="text-xl font-bold text-primary">10k+</h3>
-              <p class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">Docker Pulls</p>
-            </Card>
-          </Grid>
+          </Column>
+        </section>
+
+        <section id="tech-stack" class="mb-24 scroll-mt-32">
+          <SectionHeader icon="developer_board" title="Technical Arsenal" />
+
+          <Tabs v-model="activeStackTab" :tabs="stackTabs">
+            <template #panel="{ active }">
+              <Grid :cols="2" gap="1rem" min-col-width="260px">
+                <Card>
+                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Core Backend</h4>
+                  <p class="mt-3 text-slate-300" :class="active === 'backend' ? 'text-primary' : ''">Node.js, Python, Go, FastAPI</p>
+                </Card>
+                <Card>
+                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Databases</h4>
+                  <p class="mt-3 text-slate-300" :class="active === 'backend' ? 'text-primary' : ''">PostgreSQL, Redis, Pinecone, MongoDB</p>
+                </Card>
+                <Card>
+                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">DevOps & Cloud</h4>
+                  <p class="mt-3 text-slate-300" :class="active === 'devops' ? 'text-secondary' : ''">AWS, Docker, Terraform, CI/CD</p>
+                </Card>
+                <Card>
+                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Tools</h4>
+                  <p class="mt-3 text-slate-300" :class="active === 'devops' ? 'text-secondary' : ''">Git, Grafana, Postman, Sentry</p>
+                </Card>
+              </Grid>
+            </template>
+          </Tabs>
         </section>
 
         <section id="projects" class="py-20">
-          <SectionHeader icon="folder_special" eyebrow="02" title="Featured Projects" />
+          <SectionHeader icon="folder_special" eyebrow="01" title="Featured Projects" />
 
           <Tabs v-model="projectTab" :tabs="projectTabs">
             <template #panel="{ active }">
@@ -267,37 +285,21 @@ function openResume() {
           </Tabs>
         </section>
 
-        <section id="contact" class="py-20">
-          <SectionHeader
-            icon="mail"
-            eyebrow="03"
-            title="Connect With Me"
-            subtitle="Looking for a systems architect or backend specialist? Let's discuss your next infrastructure project."
-          />
+        <section id="connect-with-me" class="mb-24 scroll-mt-32">
+          <SectionHeader icon="connect_without_contact" title="Connect With Me" />
 
-          <Card class="blue-glow">
-            <form @submit.prevent="submitMessage">
-              <Grid :cols="2" gap="1rem" min-col-width="220px">
-                <label class="flex flex-col gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                  Name
-                  <input class="rounded-xl border border-secondary/20 bg-background-dark/50 px-4 py-3 text-white focus:border-secondary focus:outline-none" type="text" placeholder="John Doe" />
-                </label>
-
-                <label class="flex flex-col gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                  Email
-                  <input class="rounded-xl border border-secondary/20 bg-background-dark/50 px-4 py-3 text-white focus:border-secondary focus:outline-none" type="email" placeholder="john@example.com" />
-                </label>
-              </Grid>
-
-              <label class="mt-4 flex flex-col gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                Message
-                <textarea class="rounded-xl border border-secondary/20 bg-background-dark/50 px-4 py-3 text-white focus:border-secondary focus:outline-none" rows="5" placeholder="Tell me about your system requirements..."></textarea>
-              </label>
-
-              <LoadingButton class="mt-6" :loading="sendingMessage" loading-text="Sending..." full-width type="submit">
-                Send Mission Brief
-              </LoadingButton>
-            </form>
+          <Card class="relative overflow-hidden text-center">
+            <div class="pointer-events-none absolute inset-0 glow-overlay-green opacity-30"></div>
+            <div class="relative z-10">
+              <h3 class="mb-4 text-2xl font-bold">Let's Connect!</h3>
+              <p class="mx-auto mb-8 max-w-lg text-slate-400">
+                Feel free to reach out for collaborations, backend engineering discussions, or AI-driven solutions.
+              </p>
+              <Row justify="center" gap="0.75rem">
+                <PrimaryButton>Contact Me</PrimaryButton>
+                <SecondaryButton>GitHub</SecondaryButton>
+              </Row>
+            </div>
           </Card>
         </section>
       </Container>
@@ -321,7 +323,5 @@ function openResume() {
       <BottomNavigation v-model="activeBottomNav" :items="mobileNavItems" @navigate="onBottomNavigate" />
       <FloatingActionButton icon="north" label="Back to top" @click="scrollToId('about')" />
     </div>
-
-    <ExperienceTechStack v-else />
   </div>
 </template>
