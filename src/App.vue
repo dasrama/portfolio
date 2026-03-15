@@ -86,7 +86,7 @@ function onBottomNavigate(item) {
   scrollToId(key)
 }
 
-function submitMessage() {
+function submitMessage() { 
   sendingMessage.value = true
   setTimeout(() => {
     sendingMessage.value = false
@@ -194,9 +194,9 @@ function openResume() {
               <Card class="blue-glow">
                 <div class="mb-4 flex items-center justify-between border-b border-secondary/10 pb-3">
                   <Row gap="0.375rem">
-                    <div class="size-3 rounded-full bg-red-500/50"></div>
-                    <div class="size-3 rounded-full bg-amber-500/50"></div>
-                    <div class="size-3 rounded-full bg-primary/50"></div>
+                    <div class="mac-dot red"></div>
+                    <div class="mac-dot amber"></div>
+                    <div class="mac-dot green"></div>
                   </Row>
                   <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">system_logs.py</span>
                 </div>

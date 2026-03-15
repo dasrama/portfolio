@@ -55,3 +55,19 @@ main > section {
   padding-top: var(--section-vertical-padding);
   padding-bottom: var(--section-vertical-padding);
 }
+
+/* Mac-style window indicator dots (bright, glossy) */
+.mac-dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.12), inset 0 -2px 0 rgba(0,0,0,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0)) , #999;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.mac-dot.red { background: linear-gradient(180deg, rgba(224, 70, 70, 0.738), rgba(255,255,255,0)) , #ff5f56 !important; box-shadow: 0 6px 14px rgba(255,95,86,0.18), inset 0 -2px 0 rgba(0,0,0,0.18);} 
+.mac-dot.amber { background: linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0)) , #ffbd2e !important; box-shadow: 0 6px 14px rgba(255,189,46,0.18), inset 0 -2px 0 rgba(0,0,0,0.14);} 
+.mac-dot.green { background: linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0)) , #28c840 !important; box-shadow: 0 6px 14px rgba(40,200,64,0.18), inset 0 -2px 0 rgba(0,0,0,0.12);} 
+
+.mac-dot:hover { transform: translateY(-1px); }
