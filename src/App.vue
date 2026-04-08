@@ -229,7 +229,7 @@ function openResume() {
             <Column gap="1rem" align="stretch">
               <Card>
                 <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - Present</p>
-                <h3 class="mt-2 text-2xl font-bold">Backend Developer, Easework AI</h3>
+                <h3 class="mt-2 text-2xl font-bold">Backend Developer Intern, Easework AI</h3>
                 <p class="mt-1 font-medium text-slate-400">Easework AI</p>
                 <ul class="mt-4 space-y-2 text-slate-300">
                   <li>Authored and deployed an LLM-powered classification and RAG system to auto-determine purchase request categories and trigger workflows, improving decision accuracy from 60% to 90% and reducing manual approvals by 10%.</li>
@@ -255,7 +255,7 @@ function openResume() {
             <Column gap="1rem" align="stretch">
               <Card>
                 <p class="text-sm font-bold uppercase tracking-widest text-secondary">2022 -- 2026</p>
-                <h3 class="mt-2 text-2xl font-bold">International Institute of Information Technology, Bhubaneswar</h3>
+                <h3 class="mt-2 text-2xl font-bold">IIIT Bhubaneswar</h3>
                 <p class="mt-1 font-medium text-slate-400">Bachelor of Technology (B.Tech) in Computer Engineering</p>
               </Card>
             </Column>
