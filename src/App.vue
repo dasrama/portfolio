@@ -41,7 +41,6 @@ const profileLinks = {
   linkedin: 'https://www.linkedin.com/in/rama-das/',
   resume: 'https://drive.google.com/file/d/1ba-nA_uwBCBLvl1npZn22uDEYVbnTllp/view?usp=sharing',
   email: 'ramaprasad047@gmail.com',
-  phone: '+91-REMOVED',
   leetcode: 'https://leetcode.com/rama047',
 }
 
@@ -106,10 +105,6 @@ function openGitHub() {
 
 function openEmail() {
   openExternalLink(`mailto:${profileLinks.email}`)
-}
-
-function openPhone() {
-  openExternalLink(`tel:${profileLinks.phone}`)
 }
 
 function openLeetCode() {
@@ -233,7 +228,7 @@ function openResume() {
 
             <Column gap="1rem" align="stretch">
               <Card>
-                <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - Feb 2026</p>
+                <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - Present</p>
                 <h3 class="mt-2 text-2xl font-bold">Backend Developer, Easework AI</h3>
                 <p class="mt-1 font-medium text-slate-400">Easework AI</p>
                 <ul class="mt-4 space-y-2 text-slate-300">
@@ -333,7 +328,6 @@ function openResume() {
                 <PrimaryButton @click="openEmail">Email</PrimaryButton>
                 <SecondaryButton @click="openLinkedInMessage">LinkedIn</SecondaryButton>
                 <SecondaryButton @click="openGitHub">GitHub</SecondaryButton>
-                <SecondaryButton @click="openPhone">Call</SecondaryButton>
                 <SecondaryButton @click="openLeetCode">LeetCode</SecondaryButton>
               </Row>
             </div>  
