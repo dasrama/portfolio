@@ -40,6 +40,9 @@ const profileLinks = {
   github: 'https://github.com/dasrama',
   linkedin: 'https://www.linkedin.com/in/rama-das/',
   resume: 'https://drive.google.com/file/d/1ba-nA_uwBCBLvl1npZn22uDEYVbnTllp/view?usp=sharing',
+  email: 'ramaprasad047@gmail.com',
+  phone: '+91-REMOVED',
+  leetcode: 'https://leetcode.com/rama047',
 }
 
 function goHome() {
@@ -101,6 +104,18 @@ function openGitHub() {
   openExternalLink(profileLinks.github)
 }
 
+function openEmail() {
+  openExternalLink(`mailto:${profileLinks.email}`)
+}
+
+function openPhone() {
+  openExternalLink(`tel:${profileLinks.phone}`)
+}
+
+function openLeetCode() {
+  openExternalLink(profileLinks.leetcode)
+}
+
 function openLinkedInMessage() {
   openExternalLink(`${profileLinks.linkedin}?trk=public_profile_message-button`)
 }
@@ -112,7 +127,7 @@ function openResume() {
 
 <template>
   <div>
-    <TopWebBar title="System.io">
+    <TopWebBar title="Rama Prasad Das">
       <template #left>
         <div class="terminal-glow flex size-10 items-center justify-center rounded-lg bg-primary">
           <span class="material-symbols-outlined font-bold text-black">terminal</span>
@@ -176,17 +191,18 @@ function openResume() {
               </div>
 
               <h1 class="bg-gradient-to-r from-white via-white to-secondary/50 bg-clip-text font-bold leading-tight text-transparent text-4xl lg:text-6xl">
-                Backend Engineer &amp; <br />Systems Builder
+                Rama Prasad Das — Software Developer
               </h1>
 
               <p class="text-lg text-slate-400">
-                Building resilient distributed systems with
-                <span class="border-b-2 border-primary text-white">FastAPI, Python, MongoDB, Redis, Docker, and AWS</span>.
+                Software developer focused on backend systems, LLM integration, RAG, and distributed services. Experienced with
+                <span class="border-b-2 border-primary text-white">FastAPI, Python, MongoDB, Redis, RabbitMQ, Docker, and AWS</span>.
               </p>
 
               <Row justify="center" gap="1rem" class="lg:justify-start">
                 <PrimaryButton @click="scrollToId('projects')">View Work</PrimaryButton>
                 <SecondaryButton @click="openGitHub">GitHub</SecondaryButton>
+                <SecondaryButton @click="openEmail">Email</SecondaryButton>
               </Row>
             </Column>
 
@@ -213,76 +229,94 @@ function openResume() {
         </section>
 
         <section>
-          <SectionHeader icon="work_history" title="Professional Path" />
+          <SectionHeader icon="work_history" title="Work Experience" />
 
-          <Column gap="1rem" align="stretch">
-            <Card>
-              <p class="text-sm font-bold uppercase tracking-widest text-primary">Jan 2022 - Present</p>
-              <h3 class="mt-2 text-2xl font-bold">Backend Developer</h3>
-              <p class="mt-1 font-medium text-slate-400">Early-Stage AI Startup</p>
-              <ul class="mt-4 space-y-2 text-slate-300">
-                <li>Architected real-time AI inference pipelines processing 1M+ requests daily.</li>
-                <li>Optimized AWS Lambda cold starts by 40% through runtime and image optimizations.</li>
-                <li>Implemented vector indexing for high-performance semantic search.</li>
-              </ul>
-            </Card>
+            <Column gap="1rem" align="stretch">
+              <Card>
+                <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - Feb 2026</p>
+                <h3 class="mt-2 text-2xl font-bold">Backend Developer, Easework AI</h3>
+                <p class="mt-1 font-medium text-slate-400">Easework AI</p>
+                <ul class="mt-4 space-y-2 text-slate-300">
+                  <li>Authored and deployed an LLM-powered classification and RAG system to auto-determine purchase request categories and trigger workflows, improving decision accuracy from 60% to 90% and reducing manual approvals by 10%.</li>
+                  <li>Collaborated on shared logging and metrics (Prometheus, Loki) across microservices, cutting debug time by 20%.</li>
+                  <li>Designed MongoDB Atlas Search indexes with custom analyzers, enabling full-text search and reducing query latency by 25% while maintaining auditability.</li>
+                  <li>Led development of a configurable Kanban workflow engine with rule-based validations, automating ~70% of manual approval checks.</li>
+                </ul>
+              </Card>
 
-            <Card>
-              <p class="text-sm font-bold uppercase tracking-widest text-slate-500">Mar 2020 - Dec 2021</p>
-              <h3 class="mt-2 text-2xl font-bold">Software Engineer</h3>
-              <p class="mt-1 font-medium text-slate-400">CloudSystems Tech</p>
-              <ul class="mt-4 space-y-2 text-slate-300">
-                <li>Designed distributed microservices handling transactional data with 99.9% uptime.</li>
-                <li>Built internal dashboards with Prometheus and Grafana.</li>
-              </ul>
-            </Card>
-          </Column>
+              <Card>
+                <p class="text-sm font-bold uppercase tracking-widest text-secondary">May 2024 - Nov 2024</p>
+                <h3 class="mt-2 text-2xl font-bold">Backend Developer Intern, Splitkaro</h3>
+                <p class="mt-1 font-medium text-slate-400">Splitkaro</p>
+                <ul class="mt-4 space-y-2 text-slate-300">
+                  <li>Built referral and reward system with scratch-card logic, boosting user engagement by 8% and accelerating subscriptions.</li>
+                  <li>Optimized expense computation using MongoDB aggregation pipelines, reducing latency by 12% under production load.</li>
+                  <li>Standardized currency conversion across 15 subsidiaries, reducing reconciliation errors by 22%.</li>
+                </ul>
+              </Card>
+            </Column>
+
+          <SectionHeader icon="school" title="Education" />
+            <Column gap="1rem" align="stretch">
+              <Card>
+                <p class="text-sm font-bold uppercase tracking-widest text-secondary">2022 -- 2026</p>
+                <h3 class="mt-2 text-2xl font-bold">International Institute of Information Technology, Bhubaneswar</h3>
+                <p class="mt-1 font-medium text-slate-400">Bachelor of Technology (B.Tech) in Computer Engineering</p>
+              </Card>
+            </Column>
         </section>
 
         <section id="tech-stack" class="scroll-mt-32">
-          <SectionHeader icon="developer_board" title="Technical Arsenal" />
+          <SectionHeader icon="developer_board" title="Skills" />
 
-          <Tabs v-model="activeStackTab" :tabs="stackTabs">
-            <template #panel="{ active }">
-              <Grid :cols="2" gap="1rem" min-col-width="260px">
-                <Card>
-                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Core Backend</h4>
-                  <p class="mt-3 text-slate-300" :class="active === 'backend' ? 'text-primary' : ''">Node.js, Python, Go, FastAPI</p>
-                </Card>
-                <Card>
-                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Databases</h4>
-                  <p class="mt-3 text-slate-300" :class="active === 'backend' ? 'text-primary' : ''">PostgreSQL, Redis, Pinecone, MongoDB</p>
-                </Card>
-                <Card>
-                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">DevOps & Cloud</h4>
-                  <p class="mt-3 text-slate-300" :class="active === 'devops' ? 'text-secondary' : ''">AWS, Docker, Terraform, CI/CD</p>
-                </Card>
-                <Card>
-                  <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Tools</h4>
-                  <p class="mt-3 text-slate-300" :class="active === 'devops' ? 'text-secondary' : ''">Git, Grafana, Postman, Sentry</p>
-                </Card>
-              </Grid>
-            </template>
-          </Tabs>
+          <Grid :cols="2" gap="1rem" min-col-width="260px">
+            <Card>
+              <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Programming Languages</h4>
+              <p class="mt-3 text-slate-300">Python, Java, JavaScript, SQL, NoSQL</p>
+            </Card>
+            <Card>
+              <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Frameworks & Databases</h4>
+              <p class="mt-3 text-slate-300">FastAPI, Django, Flask, Vue.js, PostgreSQL, MongoDB, Redis</p>
+            </Card>
+            <Card>
+              <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">Tools & Platforms</h4>
+              <p class="mt-3 text-slate-300">Git, GitHub Actions, Docker, AWS, CI/CD, Postman</p>
+            </Card>
+            <Card>
+              <h4 class="text-sm font-bold uppercase tracking-widest text-secondary">AI & Messaging</h4>
+              <p class="mt-3 text-slate-300">LLM integration, RAG, Prompt engineering, RabbitMQ, Redis</p>
+            </Card>
+          </Grid>
         </section>
 
         <section id="projects">
           <SectionHeader icon="folder_special" title="Featured Projects" />
 
-          <Tabs v-model="projectTab" :tabs="projectTabs">
-            <template #panel="{ active }">
-              <Grid :cols="2" gap="1rem" min-col-width="280px">
-                <Card interactive>
-                  <h3 class="text-lg font-bold" :class="active === 'featured' ? 'text-primary' : 'text-white'">Distributed Load Balancer</h3>
-                  <p class="mt-3 text-sm text-slate-400">Go-based load balancer with health checks and service discovery.</p>
-                </Card>
-                <Card interactive>
-                  <h3 class="text-lg font-bold" :class="active === 'infra' ? 'text-secondary' : 'text-white'">Real-time Analytics Engine</h3>
-                  <p class="mt-3 text-sm text-slate-400">Kafka + FastAPI analytics with low-latency Redis cache.</p>
-                </Card>
-              </Grid>
-            </template>
-          </Tabs>
+          <Grid :cols="2" gap="1rem" min-col-width="280px">
+            <Card interactive>
+              <h3 class="text-lg font-bold text-primary">Event-Driven Video-to-MP3 Converter</h3>
+              <p class="mt-3 text-sm text-slate-400">Event-driven microservice architecture using RabbitMQ for upload, conversion and notifications; Dockerized for independent deployments and 35% faster end-to-end processing.</p>
+              <Row justify="end" class="mt-4">
+                <SecondaryButton @click="() => openExternalLink('https://github.com/dasrama/vmp3')">View on GitHub</SecondaryButton>
+              </Row>
+            </Card>
+
+            <Card interactive>
+              <h3 class="text-lg font-bold text-primary">Heal AI — Discord Medical Assistant</h3>
+              <p class="mt-3 text-sm text-slate-400">AI-powered Discord assistant using Gemini AI, with Redis session caching and concurrency-safe handling supporting 1,000+ simultaneous interactions.</p>
+              <Row justify="end" class="mt-4">
+                <SecondaryButton @click="() => openExternalLink('https://github.com/dasrama/HealAI-Chatbot')">View on GitHub</SecondaryButton>
+              </Row>
+            </Card>
+
+            <Card interactive>
+              <h3 class="text-lg font-bold text-primary">Secure Mail View</h3>
+              <p class="mt-3 text-sm text-slate-400">Secure Gmail viewer built with OAuth2 and JWT-authenticated FastAPI endpoints and a Streamlit frontend for safe attachment access.</p>
+              <Row justify="end" class="mt-4">
+                <SecondaryButton @click="() => openExternalLink('https://github.com/dasrama/secure_mail_listings')">View on GitHub</SecondaryButton>
+              </Row>
+            </Card>
+          </Grid>
         </section>
 
         <section id="connect-with-me" class="scroll-mt-32">
@@ -293,12 +327,14 @@ function openResume() {
             <div class="relative z-10">
               <h3 class="mb-4 text-2xl font-bold">Let's Connect!</h3>
               <p class="mx-auto mb-8 max-w-lg text-slate-400">
-                Feel free to reach out for collaborations or backend engineering discussions.
+                Reach out for collaborations, backend engineering, or AI projects.
               </p>
               <Row justify="center" gap="0.75rem">
-                <PrimaryButton>Contact Me</PrimaryButton>
-                <SecondaryButton @click="openLinkedInMessage">LinkedIn Message</SecondaryButton>
+                <PrimaryButton @click="openEmail">Email</PrimaryButton>
+                <SecondaryButton @click="openLinkedInMessage">LinkedIn</SecondaryButton>
                 <SecondaryButton @click="openGitHub">GitHub</SecondaryButton>
+                <SecondaryButton @click="openPhone">Call</SecondaryButton>
+                <SecondaryButton @click="openLeetCode">LeetCode</SecondaryButton>
               </Row>
             </div>  
           </Card>
@@ -311,7 +347,7 @@ function openResume() {
             <div class="flex size-8 items-center justify-center rounded-lg border border-primary/30 bg-primary/20">
               <span class="material-symbols-outlined text-sm text-primary">terminal</span>
             </div>
-            <span class="text-sm font-bold uppercase tracking-widest">System<span class="text-primary">.io</span></span>
+            <span class="text-sm font-bold uppercase tracking-widest">Rama Prasad Das</span>
           </div>
         </Container>
       </footer>
