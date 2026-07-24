@@ -229,7 +229,7 @@ function openResume() {
             <Column gap="1rem" align="stretch">
               <Card>
                 <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - June 2026</p>
-                <h3 class="mt-2 text-2xl font-bold">Backend Developer Intern, Easework AI</h3>
+                <h3 class="mt-2 text-2xl font-bold">Backend Engineer Intern, Easework AI</h3>
                 <p class="mt-1 font-medium text-slate-400">Easework AI</p>
                 <ul class="mt-4 space-y-2 text-slate-300">
                   <li>Authored and deployed an LLM-powered classification and RAG system to auto-determine purchase request categories and trigger workflows, improving decision accuracy from 60% to 90% and reducing manual approvals by 10%.</li>
@@ -241,7 +241,7 @@ function openResume() {
 
               <Card>
                 <p class="text-sm font-bold uppercase tracking-widest text-secondary">May 2024 - November 2024</p>
-                <h3 class="mt-2 text-2xl font-bold">Backend Developer Intern, Splitkaro</h3>
+                <h3 class="mt-2 text-2xl font-bold">Backend Engineer Intern, Splitkaro</h3>
                 <p class="mt-1 font-medium text-slate-400">Splitkaro</p>
                 <ul class="mt-4 space-y-2 text-slate-300">
                   <li>Built referral and reward system with scratch-card logic, boosting user engagement by 8% and accelerating subscriptions.</li>
