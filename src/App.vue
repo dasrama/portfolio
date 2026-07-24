@@ -228,7 +228,7 @@ function openResume() {
 
             <Column gap="1rem" align="stretch">
               <Card>
-                <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - Present</p>
+                <p class="text-sm font-bold uppercase tracking-widest text-primary">May 2025 - June 2026</p>
                 <h3 class="mt-2 text-2xl font-bold">Backend Developer Intern, Easework AI</h3>
                 <p class="mt-1 font-medium text-slate-400">Easework AI</p>
                 <ul class="mt-4 space-y-2 text-slate-300">
