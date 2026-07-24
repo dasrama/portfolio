@@ -240,7 +240,7 @@ function openResume() {
               </Card>
 
               <Card>
-                <p class="text-sm font-bold uppercase tracking-widest text-secondary">May 2024 - Nov 2024</p>
+                <p class="text-sm font-bold uppercase tracking-widest text-secondary">May 2024 - November 2024</p>
                 <h3 class="mt-2 text-2xl font-bold">Backend Developer Intern, Splitkaro</h3>
                 <p class="mt-1 font-medium text-slate-400">Splitkaro</p>
                 <ul class="mt-4 space-y-2 text-slate-300">
