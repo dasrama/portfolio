@@ -191,7 +191,7 @@ function openResume() {
 
               <p class="text-lg text-slate-400">
                 Software developer focused on backend systems, LLM integration, RAG, and distributed services. Experienced with
-                <span class="border-b-2 border-primary text-white">FastAPI, Python, MongoDB, Redis, RabbitMQ, Docker, and AWS</span>.
+                <span class="border-b-2 border-primary text-white">FastAPI, Python, React, Vue, MongoDB, Redis, RabbitMQ, Docker, and AWS</span>.
               </p>
 
               <Row justify="center" gap="1rem" class="lg:justify-start">
