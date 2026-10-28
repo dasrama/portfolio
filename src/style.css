@@ -46,14 +46,20 @@ html {
 }
 
 :root {
-  --section-gap: 2.5rem;
-  --section-vertical-padding: 2.5rem;
+  --section-gap: 0;
+  --section-vertical-padding: 1.5rem;
 }
 
 main > section {
   margin: var(--section-gap) 0;
   padding-top: var(--section-vertical-padding);
   padding-bottom: var(--section-vertical-padding);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-vertical-padding: 1.125rem;
+  }
 }
 
 /* Mac-style window indicator dots (bright, glossy) */
